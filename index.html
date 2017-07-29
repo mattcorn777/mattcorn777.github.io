@@ -2,7 +2,7 @@
  <html>
    <head>
      <script src="https://d3js.org/d3.v4.min.js"></script>
-     <script src='neighborhoods.js'></script>
+     <script src="https://raw.githubusercontent.com/myethiopia/NaturalEarth/master/subregion/GeoJson/subregion_Australia_and_New_Zealand_subunits.json"></script>
    </head>
    <body>
     <script>
@@ -17,22 +17,20 @@ var svg = d3.select('body')
 var g = svg.append('g');
 
 var albersProjection = d3.geoAlbers()
-  .scale(190000)
-  .rotate([71.057, 0])
-  .center([0, 42.313])
+  .scale(5000000)
+  .rotate([25.2744, 0])
+  .center([0, 133.7751])
   .translate([width/2, height/2]);
 
 var geoPath = d3.geoPath()
     .projection(albersProjection);
 
 g.selectAll('path')
-  .data(neighborhoods_json.features)
+  .data(subregion_Australia_and_New_Zealand_subunits_json.features)
   .enter()
   .append('path')
   .attr('fill', '#ccc')
   .attr('d', geoPath);
-
-   
     </script>
    </body>
  </html>
