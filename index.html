@@ -5,9 +5,12 @@
    </head>
    <body>
    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+   <script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
    <div id="map" style="width: 1000px; height: 600px"></div>
    <script>
-   L.geoJSON(geojsonFeature).addTo(map);
     // Create variable to hold map element, give initial settings to map
     var map = L.map('map',{
      center: [-28, 135],
@@ -17,6 +20,9 @@
       doubleClickZoom: false});
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
 	
+	$.getJSON("australia.geojson",function(statesData){
+      L.geoJson( statesData ).addTo(map);
+    }); 
     
 </script>
    </body>
