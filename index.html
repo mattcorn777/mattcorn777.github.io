@@ -7,13 +7,17 @@
    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
    <div id="map" style="width: 1000px; height: 600px"></div>
    <script>
+   L.geoJSON(geojsonFeature).addTo(map);
     // Create variable to hold map element, give initial settings to map
     var map = L.map('map',{
      center: [-28, 135],
       zoomSnap: 0.25,
       zoom: 4.25,
-      zoomControl: false});
+      zoomControl: false,
+      doubleClickZoom: false});
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+	
+    
 </script>
    </body>
  </html>
