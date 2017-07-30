@@ -54,15 +54,16 @@
 
 	info.update = function (props) {
 		this._div.innerHTML = '<h4>Australian Passenger Numbers - 2016</h4>' +  
-		(props ? '<b>' + props.name + '</b><br />' + props.inboundFlights +
-		' Inbound passengers domestic ' + '</b><br />' +
-		props.outboundFlights + ' Outbound passengers domestic </sup>'
+		(props ? '<b>' + props.name + '</b><br />' 
+		+ props.totalFlights + 'm total ' + '</b><br />' 
+		+ props.inboundIntFlights + 'm international inbound ' + '</b><br />' 
+		+ props.outboundIntFlights + 'm international outbound ' + '</b><br />'
+		+ props.inboundFlights + 'm domestic inbound ' + '</b><br />'
+		+ props.outboundFlights + 'm domestic outbound </sup>'
 			: 'Hover over a state to view data');
 	};
-	
 
 	info.addTo(map);
-
 
 	// get color depending on population density value
 	function getColor(d) {
